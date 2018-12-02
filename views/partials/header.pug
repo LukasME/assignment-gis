@@ -1,0 +1,14 @@
+.navbar.navbar-light.fixed-top.navbar-expand-md
+  .container
+    a.navbar-brand(href='/')
+      | Tweewieler
+
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+      span.sr-only Toggle navigation
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.nav-item(class=(title === 'Home') ? 'active' : undefined)
+          a.nav-link(href='/') Home
+        li.nav-item(class=(title === 'About') ? 'active' : undefined)
+          a.nav-link(href='/about') About

@@ -1,0 +1,37 @@
+style
+
+div#modal-view-settings.modal.container
+  .modal-content
+    .modal-header
+      h4 Options
+    .modal-body-conf
+      h6 Map View Tiling
+      .row
+        .col-4
+          #tweewieler-tiling-list-tab.list-group(role='tablist')
+            a#list-home-list.list-group-item.list-group-item-action.active(data-toggle='list', href='#list-home', role='tab',  value='OSM') OpenStreetMap (default)
+            a#list-profile-list.list-group-item.list-group-item-action(data-toggle='list', href='#list-profile', role='tab', value='MapBox') Mapbox
+        .col-8
+          #nav-tabContent.tab-content
+            #list-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='list-home-list') 
+            #list-profile.tab-pane.fade(role='tabpanel', aria-labelledby='list-profile-list')
+              h5 Choose mapBox style 
+              .form-check
+                input.form-check-input(type='radio', name='provinceRadios', value='1')
+                label.form-check-label(for='radioMapBox1') Basic
+              .form-check
+                input.form-check-input(type='radio', name='provinceRadios', value='2')
+                label.form-check-label(for='radioMapBox2') Dark
+              .form-check
+                input.form-check-input(type='radio', name='provinceRadios', value='3')
+                label.form-check-label(for='radioMapBox3') Light
+      hr
+      div 
+
+    .modal-additional-conf
+      button#apply-changes-btn.btn.btn-primary.btn-block(type='button') Apply
+    
+
+
+  
+

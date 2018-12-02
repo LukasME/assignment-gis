@@ -22,6 +22,14 @@ Fill in (either in English, or in Slovak):
 
 **Application description**: `<fill in>`
 
-**Data source**: `<fill in>`
+**Data source**: `https://download.geofabrik.de/europe/belgium.html`
 
-**Technologies used**: `<fill in>`
+**Technologies used**: NodeJS, Leaflet
+
+## TODO
+* [x] Create nodejs app
+* [x] Show map with openstreetmap tiles
+* [ ] Let user to choose tile preferences
+* [ ] Show map with mapbox
+* [ ] Show map with google maps javascript API 
+* [ ] 

@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  include partials/map-control
+  .container#map-container      
+    .row
+      #sidemenu-container
+        #sidemenu-static
+          div Latitude and Longitude
+          .input-group
+            input#lat-position.form-control(type='text', aria-label='Latitude')
+            input#lng-position.form-control(type='text', aria-label='Longitude')
+        #sidemenu-marker
+          h5.marginTop All things bicycle related
+          div
+            div Maximum distance (m)
+            .input-group
+              input#max-distance.form-control(type='number', aria-label='Max distance(m)', aria-describedby='inputGroup-sizing-default', value=500)
+          div#controls
+            div.marginTop.marginBottom
+              .form-check
+                input#checkRentalAmenity.form-check-input(type='checkbox', value='')
+                label.form-check-label(for='defaultCheck1')
+                  | Rental
+              .form-check
+                input#checkParkingAmenity.form-check-input(type='checkbox', value='')
+                label.form-check-label(for='defaultCheck2')
+                  | Parking
+              .form-check
+                input#checkRepairAmenity.form-check-input(type='checkbox', value='')
+                label.form-check-label(for='defaultCheck3')
+                  | Repair station
+              .form-check
+                input#checkShop.form-check-input(type='checkbox', value='')
+                label.form-check-label(for='defaultCheck3')
+                  | Shops
+              
+            button#geo-point-request.btn.btn-secondary.btn-lg.btn-block.marginTop.marginBottom(type='button') Search
+          div Results
+          ul.list-results.list-group
+
+        #sidemenu-landmark
+          h5.marginTop Search for tourist landmarks
+          button#geo-provinces-request.btn.btn-secondary.btn-lg.btn-block.marginTop.marginBottom(type='button') Load Provinces
+          div#search-provinces(style='display: none;')
+            div#geo-provinces-radiobox
+            button#geo-landmarks-request.btn.btn-secondary.btn-lg.btn-block.marginTop.marginBottom(type='button') Search selected province
+            div Results
+          ul.list-results.list-group
+      #map
+        
+  script(src='/js/lib/leaflet.js')
+  script(src='/js/lib/easy-button.js')
+  script(src='/js/lib/mapbox-gl.js')
+  script(src='/js/main.js')
+  
+  
+  
+

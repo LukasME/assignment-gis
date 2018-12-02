@@ -1,0 +1,168 @@
+@import "themes/default/variables";
+
+@import "node_modules/@ladjs/bootstrap-social/bootstrap-social.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+
+@import "themes/default/default";
+
+// Scaffolding
+// -------------------------
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 66px;
+  padding-bottom: 45px;
+  font-size: 14px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+
+  p, ul {
+    margin-bottom: 0;
+  }
+}
+
+// Input Fields
+// -------------------------
+
+textarea {
+  resize: vertical;
+}
+
+// Navbar
+// -------------------------
+
+.navbar-nav img {
+  width: 30px;
+  min-height: 30px;
+  margin: -15px 15px -15px;
+}
+
+.navbar{
+  padding: 0px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.navbar-brand{
+  font-size: 18px;
+  float: left;
+  margin-left: 15px;
+}
+
+.navbar-toggler {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.navbar-toggler-icon {
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  left: initial;
+  right: 0;
+}
+
+// Alerts
+// -------------------------
+
+.alert {
+  margin-top: 20px;
+}
+
+// Thumbnails
+// -------------------------
+
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: 0 0 5px #ccc, inset 0 0 0 #000;
+}
+
+// Font Icons
+// -------------------------
+
+.fa {
+  margin-right: 6px;
+}
+
+.fab {
+  margin-right: 6px;
+}
+
+.fas {
+  margin-right: 6px;
+}
+
+.far {
+  margin-right: 6px;
+}
+
+// Map View
+
+#map
+{
+  width: 100%;
+  height: -webkit-fill-available;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  height: 100%;
+}
+
+// Side menu
+// ------------------------
+#sidemenu-container {
+  width: 100%;
+  display: none;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  height: -webkit-fill-available;
+  flex-direction: column;
+}
+
+#sidemenu-marker {
+  width: 100%;
+  display: none;
+  height: -webkit-fill-available;
+  flex-direction: column;
+}
+
+#sidemenu-landmark {
+  width: 100%;
+  display: none;
+  height: -webkit-fill-available;
+  flex-direction: column;
+}
+
+.marginTop{
+  margin-top: 0.5em;
+}
+
+.marginBottom{
+  margin-bottom: 0.5em;
+}
+
+ul.list-results {
+  flex: 1;
+  overflow-y: auto;
+}
+
