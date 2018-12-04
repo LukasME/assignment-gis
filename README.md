@@ -12,7 +12,7 @@ Build a map-based application, which lets the user see geo-based data on a map a
 
 ## My project
 
-**Application description**: Tweewieler application aims to help encourage cyclists to go and explore their surroundings. User is able to enter his or her location with a click on a map. This action triggers search for bicycle routes near his or her location. Further functionality includes:
+**Application description**: Tweewieler application aims to help encourage cyclists to go and explore their surroundings. User is able to enter his or her location with a click on a map. This action triggers search of bicycle routes near his or her location. Further functionality includes:
 <dl>
   <dt>Search all things bicycle related</dt>
   <dd>
@@ -20,7 +20,7 @@ Build a map-based application, which lets the user see geo-based data on a map a
   </dd>
 
   <dt>Search for tourist landmarks and attractions</dt>
-  <dd>User is able to pick one from Belgium provinces and show all the landmarks it contains. Landmarks showed may be one of these categories: bunker, castle, fort, memorial, monument, ruins, unspecific attraction, binoculars, viewpoint.</dd>
+  <dd>User is able to pick one of Belgium provinces and show all the landmarks and attractions within the region. Landmarks showed may be one of these categories: bunker, castle, fort, memorial, monument, ruins, unspecific attraction, binoculars, viewpoint.</dd>
 </dl>
 
 **Data source**: `https://download.geofabrik.de/europe/belgium.html`
@@ -30,15 +30,15 @@ Build a map-based application, which lets the user see geo-based data on a map a
 ### Documentation
 
 **Files**:  
-`public/js/main.js` - frontend logic, calling backend api and html elements functions are defined in here  
-`controllers/api.js` - backend logic and database access as well as query creation is defined here
+`public/js/main.js` - frontend logic, calls to backend api and html elements functionality is defined here  
+`controllers/api.js` - backend logic and database access as well as query creation
 
 **Data**:  
-`planet_osm_polygon` - We are using this table to get all the provinces in Belgium. Provinces are defined as polygons where column boundary = 'administrative' and column admin_level = '6' as can be found on pages of WikiProject Belgium [Boundaries](https://wiki.openstreetmap.org/wiki/WikiProject_Belgium/Boundaries) There are 10 provinces in Belgium hovewer, there is 33 polygons that represent them. Most of them belongs to Antwerp province in Netherlands.  
-`planet_osm_point` - This table is used to search for landmarks, attractions and other bicycle related places. Columns used for filtering are: shop, amenity, historic, tourism and way.  
-`planet_osm_line` - This table is used to get bicycle routes in vicinity of the user. Most important column for us is 'route'('bicycle'). We also return column 'surface', that can be used to predict quality of the cycle routes. Unfortunately only 42 out of 11033 routes are denoted by one of the different categories. The rest is null.
+`planet_osm_polygon` - We are using this table to get all the provinces in Belgium. Provinces are defined as polygons where column `boundary` = 'administrative' and column `admin_level` = '6' as is defined on pages of WikiProject Belgium [Boundaries](https://wiki.openstreetmap.org/wiki/WikiProject_Belgium/Boundaries) There are only 10 provinces in Belgium, but 33 polygons that represent them. Most of these polygons belong to small separate part of Antwerpen province in Netherlands.  
+`planet_osm_point` - This table is used to search for landmarks, attractions and other bicycle related places. Columns used for filtering are: `shop`, `amenity`, `historic` and `tourism`. Column `ways` represents location of the point.
+`planet_osm_line` - This table is used to get bicycle routes in the users vicinity. Most important column here is the `route`(where we search for value 'bicycle'). We also use column `surface`, that can be used to predict quality of the cycle routes. Unfortunately only 42 out of 11033 routes are denoted by one of the different categories, value of the others is null.
 
-All ways column in the database are represented in different SRID than we use in leaflet. Leaflet uses SRID 4326, therefore we always transform these columns before passing them to frontend in GeoJSON format or compare them against each other.
+All `ways` columns in the database are represented by different SRID than we use in leaflet. Leaflet uses SRID 4326, therefore we always transform these columns before passing them to frontend in GeoJSON format or compare them against each other.
 
 **Database queries**:  
 Search nearby bicycle paths example:  
@@ -99,15 +99,15 @@ WHERE (ST_Contains(province.way, point.way))
 ```
 
 **View options(leaflet/mapbox)**:  
-There is an option of changin style of Tiling used in map. This can be changed by clicking on cog controls and selecting the desired one:  
+There is an option for changing style of Tiling used in a map. Tiling can be changed by clicking on a cog control button, selecting the desired view and pressing apply button. There are the possible choices:  
  * OpenStreetMaps
- * MapBox default
- * MapBox dark
- * MapBox light
+ * MapBox Basic
+ * MapBox Dark
+ * MapBox Light
 
-MapView were created from the Dark and Light template in the mapBox studio respectively. Deviations from the original templates are only minimal. For example water color in Light view was adjusted to be a bit more blue and color of town labels were adjusted from grey to black for better readability. 
+We created MapBox Dark and MapBox Light Tilings from the Dark and Light template in the mapBox studio respectively. Deviations from the original templates are only minimal. For example, color of water in MapBox Light view was adjusted to be a bit more blue and color of town labels were adjusted from grey to black for better readability of text. 
 
-Interface for view options can be seen in the image at the end of this README file.
+These options are showed on an image that can be found at the end of this README file.
 
 **Creating indices to improve performance**: 
 
