@@ -64,6 +64,7 @@ exports.getGeoPoints = (req, res) => {
         .where(whereExpression)
         .order('st_distance')
 
+      console.log(squelQuery.toString());  
       const query = client.query(squelQuery.toString());
       // Stream results back one row at a time
       query.on('row', (row) => {
@@ -219,6 +220,7 @@ exports.getLandmarks = (req, res) => {
       )
       .where(squel.expr().and('ST_Contains(province.way, point.way)'))
 
+    console.log(squelQuery.toString());
     const query = client.query(squelQuery.toString());
     // Stream results back one row at a time
     query.on('row', (row) => {
