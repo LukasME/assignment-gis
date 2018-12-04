@@ -273,7 +273,7 @@ $(document).ready(() => {
             circleMarker = L.circleMarker([geojsonCoord[1], geojsonCoord[0]], {
               color: getPointColor(result[i].amenity, result[i].shop),
               fillColor: '#ffffff',
-              fillOpacity: 0.3,
+              fillOpacity: 1,
               radius: 7
             }).bindPopup(popup === '' ? 'No data available' : popup);
             geoPointsLayer.addLayer(circleMarker);
@@ -387,7 +387,7 @@ $(document).ready(() => {
           circleMarker = L.circleMarker([geojsonCoord[1], geojsonCoord[0]], {
             color: '#ffffff',
             fillColor: provinceColor(selectedProvince),
-            fillOpacity: 0.8,
+            fillOpacity: 1,
             radius: 7
           }).bindPopup(popup === '' ? 'No data available' : popup);
           geoAttractionsLayer.addLayer(circleMarker);

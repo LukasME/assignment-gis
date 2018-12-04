@@ -166,3 +166,30 @@ ul.list-results {
   overflow-y: auto;
 }
 
+.foo {
+  float: right;
+  width: 24px;
+  height: 24px;
+  border: 5px solid;
+}
+
+.rental-color {
+  border-color:  #000000;
+  background: #ffffff;
+}
+.parking-color {
+  border-color: #3d67ff;
+  background: #ffffff;
+}
+.repair-color {
+  border-color: #ffa838;
+  background: #ffffff;
+}
+.shops-color {
+  border-color: red;
+  background: #ffffff;
+}
+
+
+
+
