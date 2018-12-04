@@ -6,30 +6,42 @@ Build a map-based application, which lets the user see geo-based data on a map a
 2. Local server with [PostGIS](http://postgis.net/) and an API layer that exposes data in a [geojson format](http://geojson.org/).
 3. The user-facing application (web, android, ios, your choice..) which calls the API and lets the user see and navigate in the map and shows the geodata. You can (and should) use existing components, such as the Mapbox SDK, or [Leaflet](http://leafletjs.com/).
 
-## Example projects
-
-- Showing nearby landmarks as colored circles, each type of landmark has different circle color and the more interesting the landmark is, the bigger the circle. Landmarks are sorted in a sidebar by distance to the user. It is possible to filter only certain landmark types (e.g., castles).
-
-- Showing bicykle roads on a map. The roads are color-coded based on the road difficulty. The user can see various lists which help her choose an appropriate road, e.g. roads that cross a river, roads that are nearby lakes, roads that pass through multiple countries, etc.
-
 ## Data sources
 
 - [Open Street Maps](https://www.openstreetmap.org/)
 
 ## My project
 
-Fill in (either in English, or in Slovak):
-
-**Application description**: `<fill in>`
+**Application description**: Tweewieler application aims to help and encourage cyclists to go and explore their surroundings. It is currently using only Belgium data.
 
 **Data source**: `https://download.geofabrik.de/europe/belgium.html`
 
-**Technologies used**: NodeJS, Leaflet
+**Technologies used**: NodeJS, Leaflet, MapBox, PostgreSQL
 
-## TODO
-* [x] Create nodejs app
-* [x] Show map with openstreetmap tiles
-* [ ] Let user to choose tile preferences
-* [ ] Show map with mapbox
-* [ ] Show map with google maps javascript API 
-* [ ] 
+**Documentation**:
+After opening the application, user is presented with map view and simple controls shown on the picture:
+![Tweewieler main screen](main.jpg)
+
+**Creating indices to improve performance**: 
+
+CREATE INDEX point_amenity
+  ON planet_osm_point (amenity);
+CREATE INDEX point_shop
+  ON planet_osm_point (shop)
+  WHERE shop = 'bicycle';
+
+CREATE INDEX polygon_boundary
+  ON planet_osm_polygon (boundary)
+  WHERE boundary = 'administrative';
+CREATE INDEX polygon_admin_leve
+  ON planet_osm_polygon (admin_level)
+  WHERE admin_level = '6';
+
+CREATE INDEX point_historic
+  ON planet_osm_point (historic);
+CREATE INDEX point_tourism
+  ON planet_osm_point (tourism);
+
+CREATE INDEX lines_route
+  ON planet_osm_line (route)
+  WHERE route = 'bicycle';
